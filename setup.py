@@ -32,10 +32,9 @@ setup(
     packages=find_packages(),
     zip_safe=False,
     install_requires=[
-        'django>=1.8',
-        'jsonfield>=1.0.3',
-        'simplejson',
+        'django>=2.0',
         'six',
+        'psycopg2-binary'
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',

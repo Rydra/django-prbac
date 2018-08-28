@@ -2,10 +2,11 @@
 from __future__ import unicode_literals
 
 from __future__ import absolute_import
+
+from django.contrib.postgres.fields import JSONField
 from django.db import models, migrations
 import django_prbac.fields
 from django.conf import settings
-import jsonfield.fields
 import django_prbac.models
 
 
@@ -20,7 +21,7 @@ class Migration(migrations.Migration):
             name='Grant',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('assignment', jsonfield.fields.JSONField(default=dict, help_text='Assignment from parameters (strings) to values (any JSON-compatible value)', blank=True)),
+                ('assignment', JSONField(default=dict, help_text='Assignment from parameters (strings) to values (any JSON-compatible value)', blank=True)),
             ],
             bases=(django_prbac.models.ValidatingModel, models.Model),
         ),
