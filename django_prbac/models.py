@@ -270,7 +270,7 @@ class RoleInstance(object):
     not a model but only a transient Python object.
     """
 
-    def __init__(self, role, assignment):
+    def __init__(self, role, assignment=None):
         self.role = role
         self.assignment = assignment
         self.slug = role.slug
@@ -290,7 +290,7 @@ class RoleInstance(object):
         if self.assignment:
             composed_assignment.update(self.assignment)
         # this seems like a bug (wrong arguments). is this method ever called?
-        return RoleInstance(composed_assignment)
+        return RoleInstance(self.role, composed_assignment)
 
     def has_privilege(self, privilege):
         """
