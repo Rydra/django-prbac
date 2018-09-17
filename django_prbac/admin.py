@@ -2,11 +2,10 @@
 from __future__ import unicode_literals, absolute_import, print_function
 
 # Django imports
+import json
+
 from django import forms
 from django.contrib import admin
-
-# External librariess
-import simplejson
 
 # Local imports
 import django_prbac.csv
@@ -59,7 +58,7 @@ class GrantAdmin(admin.ModelAdmin):
     model = Grant
 
     def assignment__dumps(self, instance):
-        return simplejson.dumps(instance.assignment)
+        return json.dumps(instance.assignment)
     assignment__dumps.short_description = 'Assignment'
 
     list_display = [
