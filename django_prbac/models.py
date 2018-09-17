@@ -6,12 +6,10 @@ import time
 import weakref
 
 # Django imports
+from django.contrib.postgres.fields import JSONField
 from django.db import models
 from django.conf import settings
 from django.utils.encoding import python_2_unicode_compatible
-
-# External Library imports
-import jsonfield
 
 # Local imports
 from django_prbac.fields import StringSetField
@@ -210,7 +208,7 @@ class Grant(ValidatingModel, models.Model):
         on_delete=models.CASCADE,
     )
 
-    assignment = jsonfield.JSONField(
+    assignment = JSONField(
         help_text='Assignment from parameters (strings) to values (any JSON-compatible value)',
         blank=True,
         default=dict,
