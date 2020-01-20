@@ -9,7 +9,6 @@ import weakref
 from django.contrib.postgres.fields import JSONField
 from django.db import models
 from django.conf import settings
-from django.utils.encoding import python_2_unicode_compatible
 
 # Local imports
 from django_prbac.fields import StringSetField
@@ -30,7 +29,6 @@ class ValidatingModel(object):
         super(ValidatingModel, self).save(force_insert, force_update, **kwargs)
 
 
-@python_2_unicode_compatible
 class Role(ValidatingModel, models.Model):
     """
     A PRBAC role, aka a Role parameterized by a set of named variables. Roles
