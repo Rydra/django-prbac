@@ -54,5 +54,5 @@ class Migration(migrations.Migration):
             model_name='grant',
             name='to_role',
             field=models.ForeignKey(related_name='members', to='django_prbac.Role', help_text='The super-role or permission being given', on_delete=models.CASCADE),
-        ),
+        )
     ]

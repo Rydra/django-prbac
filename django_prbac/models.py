@@ -206,6 +206,8 @@ class Grant(ValidatingModel, models.Model):
         on_delete=models.CASCADE,
     )
 
+    deny = models.BooleanField(null=False, default=False)
+
     assignment = JSONField(
         help_text='Assignment from parameters (strings) to values (any JSON-compatible value)',
         blank=True,
